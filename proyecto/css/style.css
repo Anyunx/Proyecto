@@ -1,0 +1,177 @@
+/* Reset general y configuración básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Asegura que el HTML y el body ocupen toda la pantalla */
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal con un diseño de Grid */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr; /* La primera fila se ajusta al contenido, la segunda ocupa el resto */
+    border: 4px solid black;
+}
+
+/* Encabezado con estilo de barra superior */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    font-size: 2em;
+    font-weight: bold;
+    border-bottom: 4px solid black;
+    height: 17vh; /* Altura fija del encabezado */
+}
+
+/* Botón de cierre alineado a la derecha */
+.logo-container {
+    padding: 1em 7.5em;
+    position: relative; /* Necesario para el pseudo-elemento */
+}
+
+/* Línea vertical entre título y botón de cierre */
+.logo-container::after {
+    content: ""; 
+    position: absolute;
+    right: 19.75em;
+    top: -2em; /* Ajusta la posición superior */
+    height: 150%; /* Extiende la línea vertical */
+    width: 4px; /* Grosor del borde */
+    background-color: black; /* Color de la línea */
+}
+
+/* Estilos para los títulos */
+.title {
+    padding: 1em 4em;
+}
+
+.sub-title {
+    font-size: 2em;
+    padding: 1em 0em;
+}
+
+/* Área principal dividida en dos columnas */
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Sección izquierda más grande que la derecha */
+    height: 100%;
+}
+
+/* Sección izquierda con tres áreas */
+.left-section {
+    border-right: 4px solid black;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: 2em;
+    padding: 2em;
+}
+
+/* Logo circular con fondo negro */
+.logo {
+    font-size: 2em;
+    cursor: pointer;
+    background: black;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+/* Configuración base para elementos en grid */
+.grid {
+    display: grid;
+    gap: 1em;
+    justify-items: center;
+}
+
+/* Variaciones de columnas para diferentes grids */
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Estilos generales para elementos de lista */
+.item {
+    text-align: center;
+    padding: 1em;
+    border: 3px solid black;
+    cursor: pointer;
+    width: 20em;
+    height: 10em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item img {
+    width: 50%;
+    height: auto;
+}
+
+.item p {
+    margin-top: 0.5em;
+    font-size: 1.2em;
+}
+
+/* Sección de mantenimiento con disposición en grid */
+.mantenimiento {
+    padding: 2em;
+}
+
+.mantenimiento .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+
+/* Estilos para los usuarios */
+.user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 7em;
+    width: 13em;
+    border: 3px solid black;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 2em;
+}
+
+.user img {
+    width: 50%;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5em;
+}
+
+/* Sección "Desarrollado por", alineada a la esquina inferior derecha */
+.desarrollado {
+    text-align: center;
+    font-size: 1.6em;
+    border: 3px solid black;
+    padding: 0.5em;
+    width: 15em;
+    height: 4em;
+    position: absolute;
+    right: 0; /* Pegado a la derecha */
+    bottom: 0; /* Pegado abajo */
+}
