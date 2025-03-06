@@ -1,0 +1,26 @@
+/* Variables de colores */
+:root {
+    --primary-color: #005F73; /* Azul petróleo */
+    --secondary-color: #E9C46A; /* Mostaza suave */
+    --border-color: #DDDDDD; /* Gris tenue */
+    --text-color: white; /* Texto blanco */
+}
+
+/* Reset general y configuración básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+}
+
