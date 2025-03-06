@@ -1,10 +1,11 @@
+@import url('./style-global.css');
 /* Contenedor principal que ocupa toda la pantalla */
 .container {
     width: 100%; /* Ocupa el 100% del ancho */
     height: 100vh; /* Ocupa el 100% de la altura de la ventana */
     display: grid;
     grid-template-rows: auto 1fr; /* Divide en dos filas: header y el contenido principal */
-    background: var(--text-color);
+    background: white;
 }
 
 /* Estilos del encabezado */
@@ -17,7 +18,7 @@ header {
     font-weight: bold;
     height: 17vh;
     background: var(--primary-color); /* Color de fondo del encabezado */
-    color: var(--text-color); /* Color del texto */
+    color: var(--background-color); /* Color del texto */
     position: relative;
 }
 
@@ -25,45 +26,42 @@ header {
 header::after {
     content: "";
     position: absolute;
-    left: 66.4%;
+    left: 66.4%; /* Ajusta para coincidir con la división de abajo */
     top: 0;
     height: 100%;
     width: 4px;
-    background-color: var(--border-color);
 }
-
-
-
-/* Contenedor del logo */
-.logo-container {
+.container-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding-right: 2em;
+    justify-content: space-between; /* Separa los elementos */
+    align-items: center; /* Alinea verticalmente */
+    padding: 10px 20px; /* Espaciado interno */
+    width: 100%;
 }
 
-/* Estilos del logo dentro del contenedor */
-.logo-container img {
-    width: 80px;
-    height: auto;
+.bienvenida {
+    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+    flex: 1;
 }
 
-/* Ajuste adicional del logo */
 .logo {
-    width: 12% !important;
-    position: absolute;
-    margin-left: 9em;
+    text-align: right; /* Alinea el contenido a la derecha */
+    flex: 1;
 }
+
 
 /* Estilos del nombre de usuario */
-.username {
-    margin-right: 8em;
+.company {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--background-color);
 }
 
-/* Estilos del título principal */
-.title {
-    padding-left: 2em;
+/* Estilos del subtítulo */
+.sub-title {
+    font-size: 2em;
+    padding: 1em 0em;
+    color: var(--text-color);
 }
 
 /* Contenedor principal dividido en dos columnas */
@@ -75,7 +73,15 @@ main {
 
 /* Sección izquierda (Punto de venta) */
 .left-section {
-    border-right: 4px solid var(--border-color);
+    background-color: var(--background-color);
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: 2em;
+    padding: 2em;
+}
+
+.right-section {
+    background-color: var(--background-color);
     display: grid;
     grid-template-rows: repeat(3, auto);
     gap: 2em;
@@ -108,11 +114,14 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 1em;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
-    background: var(--primary-color);
-    color: var(--text-color);
+}
+.item {
+    height: 9.2em;
 }
 
 /* Botón de usuario con un tamaño más pequeño */
@@ -132,20 +141,19 @@ i {
     transform: scale(1.05);
 }
 
+/* Estilos de las imágenes dentro de los botones */
+.item img, .user img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5em;
+}
+
 /* Estilos del texto dentro de los botones */
 .item p, .user p {
     font-size: 1.2em;
     color: var(--text-color);
     font-weight: bold;
 }
-
-/* Estilos del subtítulo */
-.sub-title {
-    font-size: 2em;
-    padding: 1em 0em;
-    color: var(--primary-color);
-}
-
 
 /* Sección de mantenimiento */
 .mantenimiento {
@@ -160,16 +168,14 @@ i {
 /* Estilos del footer desarrollado */
 .desarrollado {
     text-align: center;
-    font-size: 1.6em;
-    font-weight: 600;
+    font-size: 1.2em;
     padding: 0.5em;
-    width: 15em;
-    height: 4em;
+    width: 14em;
+    height: 3em;
     position: absolute;
     right: 0;
     bottom: 0;
     background: var(--primary-color);
-    color: var(--text-color);
-    border-radius: 1em 0 0 0;
+    color: white;
+    border-radius: 10px 0 0 0;
 }
-
