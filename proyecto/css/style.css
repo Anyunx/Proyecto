@@ -1,177 +1,180 @@
-/* Reset general y configuración básica */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Asegura que el HTML y el body ocupen toda la pantalla */
-html, body {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Contenedor principal con un diseño de Grid */
+/* Contenedor principal que ocupa toda la pantalla */
 .container {
-    width: 100%;
-    height: 100vh;
+    width: 100%; /* Ocupa el 100% del ancho */
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
     display: grid;
-    grid-template-rows: auto 1fr; /* La primera fila se ajusta al contenido, la segunda ocupa el resto */
-    border: 4px solid black;
+    grid-template-rows: auto 1fr; /* Divide en dos filas: header y el contenido principal */
+    border: 4px solid var(--border-color); /* Borde negro alrededor del contenedor */
+    background: white;
 }
 
-/* Encabezado con estilo de barra superior */
+/* Estilos del encabezado */
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Espacia los elementos en el header */
     align-items: center;
     padding: 1em;
     font-size: 2em;
     font-weight: bold;
-    border-bottom: 4px solid black;
-    height: 17vh; /* Altura fija del encabezado */
+    border-bottom: 4px solid var(--border-color);
+    height: 17vh;
+    background: var(--primary-color); /* Color de fondo del encabezado */
+    color: white; /* Color del texto */
+    position: relative;
 }
 
-/* Botón de cierre alineado a la derecha */
-.logo-container {
-    padding: 1em 7.5em;
-    position: relative; /* Necesario para el pseudo-elemento */
-}
-
-/* Línea vertical entre título y botón de cierre */
-.logo-container::after {
-    content: ""; 
+/* Línea divisoria en el header */
+header::after {
+    content: "";
     position: absolute;
-    right: 19.75em;
-    top: -2em; /* Ajusta la posición superior */
-    height: 150%; /* Extiende la línea vertical */
-    width: 4px; /* Grosor del borde */
-    background-color: black; /* Color de la línea */
+    left: 66.4%; /* Ajusta para coincidir con la división de abajo */
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: var(--border-color);
 }
 
-/* Estilos para los títulos */
+/* Contenedor del logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-right: 2em;
+}
+
+/* Estilos del logo dentro del contenedor */
+.logo-container img {
+    width: 80px;
+    height: auto;
+}
+
+/* Ajuste adicional del logo */
+.logo {
+    width: 12% !important;
+    position: absolute;
+    margin-left: 9em;
+}
+
+/* Estilos del nombre de usuario */
+.username {
+    margin-right: 8em;
+}
+
+/* Estilos del título principal */
 .title {
-    padding: 1em 4em;
+    padding-left: 2em;
 }
 
+/* Estilos del subtítulo */
 .sub-title {
     font-size: 2em;
     padding: 1em 0em;
+    color: var(--text-color);
 }
 
-/* Área principal dividida en dos columnas */
+/* Contenedor principal dividido en dos columnas */
 main {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Sección izquierda más grande que la derecha */
+    grid-template-columns: 2fr 1fr; /* Dos columnas: izquierda más grande que la derecha */
     height: 100%;
 }
 
-/* Sección izquierda con tres áreas */
+/* Sección izquierda (Punto de venta) */
 .left-section {
-    border-right: 4px solid black;
+    border-right: 4px solid var(--border-color);
     display: grid;
     grid-template-rows: repeat(3, auto);
     gap: 2em;
     padding: 2em;
 }
 
-/* Logo circular con fondo negro */
-.logo {
-    font-size: 2em;
-    cursor: pointer;
-    background: black;
-    width: 2em;
-    height: 2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-}
-
-/* Configuración base para elementos en grid */
+/* Estilos para las grillas */
 .grid {
     display: grid;
     gap: 1em;
     justify-items: center;
 }
 
-/* Variaciones de columnas para diferentes grids */
 .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
 }
 
 .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
 }
 
-/* Estilos generales para elementos de lista */
-.item {
+/* Estilos de los botones (Punto de venta y Mantenimiento) */
+.item, .user {
     text-align: center;
     padding: 1em;
-    border: 3px solid black;
+    border: 3px solid var(--border-color);
     cursor: pointer;
     width: 20em;
-    height: 10em;
+    height: 7em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
 }
 
-.item img {
-    width: 50%;
-    height: auto;
+/* Botón de usuario con un tamaño más pequeño */
+.user {
+    width: 12em;
+    height: 7em;
 }
 
-.item p {
-    margin-top: 0.5em;
+/* Estilos de los iconos dentro de los botones */
+i {
+    padding: 0.5em;
+    font-size: 2em;
+}
+
+/* Efecto de escala al pasar el mouse */
+.item:hover, .user:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos de las imágenes dentro de los botones */
+.item img, .user img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5em;
+}
+
+/* Estilos del texto dentro de los botones */
+.item p, .user p {
     font-size: 1.2em;
+    color: var(--text-color);
+    font-weight: bold;
 }
 
-/* Sección de mantenimiento con disposición en grid */
+/* Sección de mantenimiento */
 .mantenimiento {
     padding: 2em;
 }
 
 .mantenimiento .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Cuatro secciones en dos columnas */
     gap: 1em;
 }
 
-/* Estilos para los usuarios */
-.user {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 7em;
-    width: 13em;
-    border: 3px solid black;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 2em;
-}
-
-.user img {
-    width: 50%;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 0.5em;
-}
-
-/* Sección "Desarrollado por", alineada a la esquina inferior derecha */
+/* Estilos del footer desarrollado */
 .desarrollado {
     text-align: center;
     font-size: 1.6em;
-    border: 3px solid black;
+    border: 3px solid var(--border-color);
     padding: 0.5em;
     width: 15em;
     height: 4em;
     position: absolute;
-    right: 0; /* Pegado a la derecha */
-    bottom: 0; /* Pegado abajo */
+    right: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 10px 0 0 0;
 }

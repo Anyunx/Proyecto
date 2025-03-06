@@ -1,0 +1,26 @@
+/* Variables de colores */
+:root {
+    --primary-color: #ff6600;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #222;
+    --border-color: #000;
+}
+
+/* Reset general y configuración básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+}
