@@ -1,9 +1,11 @@
 /* Variables de colores */
 :root {
-    --primary-color: #ff6600;
-    --secondary-color: #333;
-    --background-color: #f4f4f4;
-    --text-color: #222;
+    --primary-color: #D32F2F;
+    --secondary-color: #FFA000;
+    --background-color: #FFF8E1;
+    --text-color: #424242;
+    --text-exito: #4CAF50;
+    --text-advertencia: #FBC02D;
     --border-color: #000;
 }
 
@@ -17,10 +19,14 @@
 }
 
 html, body {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
+}
+a {
+    color: var(--text-color);
+    text-decoration: none;
 }

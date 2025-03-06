@@ -1,10 +1,10 @@
+@import url('./style-global.css');
 /* Contenedor principal que ocupa toda la pantalla */
 .container {
     width: 100%; /* Ocupa el 100% del ancho */
     height: 100vh; /* Ocupa el 100% de la altura de la ventana */
     display: grid;
     grid-template-rows: auto 1fr; /* Divide en dos filas: header y el contenido principal */
-    border: 4px solid var(--border-color); /* Borde negro alrededor del contenedor */
     background: white;
 }
 
@@ -16,10 +16,9 @@ header {
     padding: 1em;
     font-size: 2em;
     font-weight: bold;
-    border-bottom: 4px solid var(--border-color);
     height: 17vh;
     background: var(--primary-color); /* Color de fondo del encabezado */
-    color: white; /* Color del texto */
+    color: var(--background-color); /* Color del texto */
     position: relative;
 }
 
@@ -31,39 +30,31 @@ header::after {
     top: 0;
     height: 100%;
     width: 4px;
-    background-color: var(--border-color);
 }
-
-/* Contenedor del logo */
-.logo-container {
+.container-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding-right: 2em;
+    justify-content: space-between; /* Separa los elementos */
+    align-items: center; /* Alinea verticalmente */
+    padding: 10px 20px; /* Espaciado interno */
+    width: 100%;
 }
 
-/* Estilos del logo dentro del contenedor */
-.logo-container img {
-    width: 80px;
-    height: auto;
+.bienvenida {
+    text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+    flex: 1;
 }
 
-/* Ajuste adicional del logo */
 .logo {
-    width: 12% !important;
-    position: absolute;
-    margin-left: 9em;
+    text-align: right; /* Alinea el contenido a la derecha */
+    flex: 1;
 }
+
 
 /* Estilos del nombre de usuario */
-.username {
-    margin-right: 8em;
-}
-
-/* Estilos del título principal */
-.title {
-    padding-left: 2em;
+.company {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--background-color);
 }
 
 /* Estilos del subtítulo */
@@ -82,7 +73,15 @@ main {
 
 /* Sección izquierda (Punto de venta) */
 .left-section {
-    border-right: 4px solid var(--border-color);
+    background-color: var(--background-color);
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: 2em;
+    padding: 2em;
+}
+
+.right-section {
+    background-color: var(--background-color);
     display: grid;
     grid-template-rows: repeat(3, auto);
     gap: 2em;
@@ -108,7 +107,6 @@ main {
 .item, .user {
     text-align: center;
     padding: 1em;
-    border: 3px solid var(--border-color);
     cursor: pointer;
     width: 20em;
     height: 7em;
@@ -116,10 +114,14 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: white;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
+}
+.item {
+    height: 9.2em;
 }
 
 /* Botón de usuario con un tamaño más pequeño */
@@ -166,11 +168,10 @@ i {
 /* Estilos del footer desarrollado */
 .desarrollado {
     text-align: center;
-    font-size: 1.6em;
-    border: 3px solid var(--border-color);
+    font-size: 1.2em;
     padding: 0.5em;
-    width: 15em;
-    height: 4em;
+    width: 14em;
+    height: 3em;
     position: absolute;
     right: 0;
     bottom: 0;
